@@ -1,0 +1,84 @@
+<!-- <body id="body"> -->
+  <div class="filter">
+    <div class="md-form md-outline form-sm">
+      <input
+        id="form-sm"
+        (keyup)="filterServiceByName($event.target.value)"
+        class="form-control form-control-sm"
+        type="text"
+        mdbInput
+      />
+      <label for="form-sm">name</label>
+    </div>
+
+    <select class="dropbtn" (change)="filterServiceByProfession($event.target.value)">
+      <option class="dropdown-content" value="Profession">profession</option>
+      <option
+        class="dropdown-content"
+        *ngFor="let sevice of list"
+        value="{{ sevice.profession }}"
+      >
+        {{ sevice?.profession }}
+      </option>
+    </select>
+    <button id="mapBtn" (click)="viewMap()">Search By Location</button>
+
+  </div>
+
+  
+  <div *ngIf='map' id="map">
+    <agm-map (mapClick)='onLocChange($event)' [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+      <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+        (dragEnd)="markerDragEnd($event)"></agm-marker>
+  <agm-marker  [label] ="{color: labelColor, text: e.profession , backgroundColor: labelBackground, fontSize: '15px',fontWeight: 'bold'}" [iconUrl]= "{url:'../assets/icon.svg', scaledSize: { width: 60, height: 80}}"  (markerClick)='goSvProfile(e.email)' class="marker" *ngFor='let e of services' [latitude]="e.lat" [longitude] ="e.lng" >
+</agm-marker>
+    </agm-map>
+  
+  </div>
+  <h5 *ngIf='map'>Address: {{address}}</h5>
+
+  <!-- <div class="cont-cards">
+    <div class="card-cont" *ngFor="let e of services">
+      <div class="card mb-3" (click)="goSvProfile(e.email)" id="whole-card">
+        <div class="img__cont">
+          <img src="{{ e.imageUrl }}" class="card-img-top" alt="..." />
+        </div>
+        <div class="card-body">
+          <div class="card-body">
+            <div class="sp__name-rate">
+              <h3 class="sp__name">
+                <span class="fas fa-user"></span>{{ e.fullName }}
+              </h3>
+            </div>
+            <h4 class="card-title">
+              <i class="fas fa-tools"></i>{{ e.profession }}
+            </h4>
+            <h4 class="card-title">
+              <i class="fas fa-map-marker-alt"></i>{{ e.location }}
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+<!-- </body> -->
+
+
+
+<div  *ngFor="let e of services">
+  
+    <figure id="card" (click)="goSvProfile(e.email)" class="snip1336 hover"   >
+      
+        <img id="avatar"  src="{{e?.img}}" alt="sample74" />
+        <figcaption>
+          <img id="image"  src="{{ e.imageUrl }}" alt="profile-sample2" class="profile" />
+          <h2> <span class="fas fa-user"></span>{{ e.fullName }}</h2>
+          <h2> <span class="fas fa-tools"></span>{{ e.profession }}</h2>
+          <h6>  <span class="fas fa-map-marker-alt"></span>{{ e.location }}</h6>
+          <a href="#" (click)="goSvProfile(e.email)" class="info">More Info</a>
+        </figcaption>
+     
+   
+    </figure>
+   
+  </div>

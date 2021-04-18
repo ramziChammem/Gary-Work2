@@ -1,0 +1,382 @@
+<!-- <app-sv-nav></app-sv-nav> -->
+<div class="body">
+  <div class="cont">
+    <div class="container">
+      <div class="profile-header">
+        <div class="profile-image">
+          <div class="imgg-cont">
+            <img src="{{ userData?.imageUrl }}" alt="" width="200" />
+            <div class="cam-icon">
+              <i (click)="basicModal.show()" class="fas fa-camera"></i>
+              <!-- modal -->
+              <div class="modalImage"></div>
+              <div
+                mdbModal
+                #basicModal="mdbModal"
+                class="modal fade"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="myBasicModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button
+                        type="button"
+                        class="close pull-right"
+                        aria-label="Close"
+                        (click)="basicModal.hide()"
+                      ></button>
+
+                      <input
+                        class="input-image"
+                        style="margin-top: 35px"
+                        type="file"
+                        (change)="imgUpload($event)"
+                        #image
+                        alt="Submit"
+                      />
+                      <img
+                        src="{{ imageUrl }}"
+                        style="width: 200px; height: 200px"
+                      />
+                    </div>
+                    <!-- <div class="modal-body">
+                        ...
+                      </div> -->
+
+                    <div class="modal-footer">
+                      <button class="btn" (click)="basicModal.hide()">
+                        <i class="fa fa-close"></i> Close
+                      </button>
+                      <button class="btnS" (click)="updateImage(this.imageUrl)">
+                        <i class="fa fa-close"></i> Save Changes
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- modal -->
+            </div>
+          </div>
+        </div>
+        <div class="profile-nav-info">
+          <h3 class="user-name">{{ userData?.userName }}</h3>
+          <p class="state">{{ userData?.location }}</p>
+        </div>
+        <div class="profile-option" *ngIf="notifications > 0">
+          <div class="notification">
+            <i class="fa fa-bell"></i>
+            <span class="alert-message" (click)="goToAppointments()">{{
+              notifications
+            }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="main-bd">
+        <div class="left-side">
+          <div class="profile-side">
+            <p class="phone-number">
+              <i class="fa fa-phone"></i>
+              {{ userData?.phoneNumber }}
+            </p>
+            <p class="email">
+              <i class="fa fa-envelope"></i>
+              {{ userData?.email }}
+            </p>
+          </div>
+        </div>
+        <div class="right-side">
+          <div class="nav">
+            <ul>
+              <li
+                class="user-setting"
+                [class.active]="appointments"
+                (click)="appointment()"
+              >
+                My appointments
+              </li>
+              <li
+                class="user-review"
+                [class.active]="settings"
+                (click)="setting()"
+              >
+                Update My Profile
+              </li>
+              <li
+                class="user-setting"
+                [class.active]="Security"
+                (click)="security()"
+              >
+                Security
+              </li>
+            </ul>
+          </div>
+          <div class="profile-body">
+            <div
+              class="profile-posts tab active"
+              id="profile-settings"
+              *ngIf="settings"
+            >
+              <h1>Your settings</h1>
+              <!-- settings for the profile -->
+              <form class="text-center border border-light p-5">
+                <div>
+                  <div class="col-25">
+                  <label>First Name</label>
+                </div>
+                <div class="col-75">
+                  <input
+                    #firstName
+                    class="form-control mb-4 p-4"
+                    value="{{ userData.firstName }}"
+                  />
+                </div>
+                </div>
+                <div>
+                  <div class="col-25">
+                  <label>Last Name</label>
+                </div>
+                <div class="col-75">
+                  <input
+                    #lastName
+                    class="form-control mb-4 p-4"
+                    value="{{ userData.lastName }}"
+                  />
+                </div>
+                </div>
+                <div>
+                  <div class="col-25">
+                  <label>User Name</label>
+                </div>
+                <div class="col-75">
+                  <input
+                    #userName
+                    class="form-control mb-4 p-4"
+                    value="{{ userData.userName }}"
+                  />
+                </div>
+                </div>
+                <div>
+                  <div class="col-25">
+                  <label>Phone Number</label>
+                </div>
+                <div class="col-75">
+                  <input
+                    #phoneNumber
+                    class="form-control mb-4 p-4"
+                    value="{{ userData.phoneNumber }}"
+                  />
+                  </div>
+                </div>
+                <div  id="map">
+                  <app-location #location></app-location>
+                </div>
+                <button
+                  class="btn-update"
+                  (click)="
+                    updateUserDetails(
+                      firstName.value,
+                      lastName.value,
+                      userName.value,
+                      phoneNumber.value,
+                      location.address
+                    )
+                  "
+                >
+                  Save
+                </button>
+              </form>
+              <!-- trying form -->
+
+              <!-- <div class="container">
+                <form action="action_page.php">
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="fname">First Name</label>
+                    </div>
+                    <div class="col-75">
+                      <input #firstName type="text" id="fname" name="firstname" value="{{ userData.firstName }}"/>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="lname">Last Name</label>
+                    </div>
+                    <div class="col-75">
+                      <input #lastName type="text" id="lname" name="lastname" value="{{ userData.lastName }}">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="lname">User Name</label>
+                    </div>
+                    <div class="col-75">
+                      <input #userName type="text" id="lname" name="lastname" value="{{ userData.userName }}">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="lname">Phone Number</label>
+                    </div>
+                    <div class="col-75">
+                      <input #phoneNumber type="text" id="lname" name="lastname" value="{{ userData.phoneNumber }}">
+                    </div>
+                  </div>
+                  <div id="map">
+                    <app-location #location></app-location>
+                  </div>
+                  <div class="row">
+                    <button
+                      type="submit"
+                    (click)="
+                      updateUserDetails(
+                        firstName.value,
+                        lastName.value,
+                        userName.value,
+                        phoneNumber.value,
+                        location.address
+                      )
+                    "
+                  >
+                    Save
+                  </button>
+                  </div>
+                </form>
+              </div> -->
+              <!-- trying form -->
+              <!-- settings for the profile -->
+            </div>
+            <!-- security -->
+            <div
+              class="profile-posts tab active"
+              id="profile-settings"
+              *ngIf="Security"
+            >
+              <h1>Your settings</h1>
+              <!-- settings for the profile -->
+              <form class="text-center border border-light p-5">
+                <div>
+                  <div class="col-25">
+                  <label >Current password</label>
+                </div>
+                <div class="col-75">
+                  <input
+                    #currentPassword
+                    type="password"
+                    class="form-control mb-4 p-4"
+                    placeholder="current password"
+                  />
+                </div>
+                </div>
+                <div>
+                  <div class="col-25">
+                  <label >New password</label>
+                </div>
+                <div class="col-75">
+                  <input
+                    #newPassword
+                    type="password"
+                    class="form-control mb-4 p-4"
+                    placeholder="new password"
+                  />
+                </div>
+                </div>
+                <div>
+                  <div class="col-25">
+                  <label >Confirm Password</label>
+                </div>
+                <div class="col-75">
+                  <input
+                    #confirmPassword
+                    type="password"
+                    class="form-control mb-4 p-4"
+                    placeholder="Confirm new Password"
+                  />
+                </div>
+                </div>
+                <button
+                  class="btn-update"
+                  (click)="
+                    updatePassword(
+                      currentPassword.value,
+                      newPassword.value,
+                      confirmPassword.value
+                    )
+                  "
+                >
+                  Save
+                </button>
+              </form>
+              <!-- settings for the profile -->
+            </div>
+            <!-- security -->
+            <div
+              class="profile-settings tab"
+              id="profile-settings"
+              *ngIf="appointments"
+            >
+              <div
+                class="appointmentCard"
+                *ngFor="let appointment of appointmentsList"
+              >
+                <div
+                  class="app-contt"
+                  *ngIf="!appointment.isDeclined && !appointment.isApproved"
+                >
+                  <p id="app">
+                    <i class="far fa-calendar-alt"></i> you have an appointment
+                    on: <span class="ap"> {{ appointment.date }}</span>
+                  </p>
+                  <p>
+                    <i class="far fa-clock"></i> at :
+                    <span class="ap">{{ appointment.time }}</span>
+                  </p>
+                  <h1 id="with">
+                    With: <span id="user">{{ appointment.sPName }}</span>
+                  </h1>
+                  <button
+                    class="btn-cancel"
+                    (click)="cancelAppointment(appointment._id)"
+                  >
+                    Cancel <i class="fas fa-times-circle cancel"></i>
+                  </button>
+                </div>
+                <div
+                  class="appr"
+                  *ngIf="appointment.isApproved && !appointment.isDeclined"
+                >
+                  <div class="approved-app">
+                    Your Appointment with {{ appointment.sPName }} on
+                    {{ appointment.date }} at {{ appointment.time }} have been
+                    approved!
+                  </div>
+                  <i
+                    class="fas fa-times-circle deleteNotf"
+                    (click)="deleteNotification(appointment._id)"
+                  ></i>
+                </div>
+                <div
+                  class="decc"
+                  *ngIf="!appointment.isApproved && appointment.isDeclined"
+                >
+                  <div class="declined-app">
+                    Your Appointment with {{ appointment.sPName }} on
+                    {{ appointment.date }} at {{ appointment.time }} have been
+                    Declined.
+                  </div>
+                  <i
+                    class="fas fa-times-circle deleteNotfDec"
+                    (click)="deleteNotification(appointment._id)"
+                  ></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

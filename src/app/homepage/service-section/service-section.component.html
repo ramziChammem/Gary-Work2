@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="explore">
+    <h1 class="exp-tt">Explore Our Services</h1>
+  </div>
+
+  <div class="servicesRO">
+    
+    <div class="services"(click)="takeMeTo('Plumber')">
+      <img src="../../../assets//plumber.svg" alt="Plumbing" />
+      <h4>Plumbing</h4>
+    </div>
+    <div id="test" class="services">
+      <img src="../../../assets/clim.svg" alt="A/C" (click)="takeMeTo('Air conditioner repair')" />
+      <h4>Air Conditioning & Cooling</h4>
+    </div>
+    <div class="services" (click)="takeMeTo('Painter')">
+      <img src="../../../assets/dahen.svg" alt="Painting" />
+      <h4>Painting</h4>
+    </div>
+  </div>
+
+  <div class="servicesRT">
+    <div class="services" (click)="takeMeTo('Electrician')">
+      <img id="why" src="../../../assets/elec.svg" alt="Electricity" />
+      <h4>Electricity</h4>
+    </div>
+    <div class="services" (click)="takeMeTo('Carpenter')">
+      <img src="../../../assets/carp.svg" alt="repair" />
+      <h4>Carpentry</h4>
+    </div>
+    <div class="services" (click)="more()" >
+      <img src="../../../assets/customer.svg" alt="" />
+      <h4><a id="more" routerLink='userServices' >More Services</a></h4>
+    </div>
+  </div>
+</div>

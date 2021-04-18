@@ -1,0 +1,196 @@
+<!-- <app-navbar></app-navbar> -->
+
+<!-- Default form register -->
+<div class="container">
+  <div class="cont-sign-up">
+    <p class="h4 mb-4 sign-tt">Sign up</p>
+
+    <div class="form-row mb-4">
+      <div class="col">
+        <!-- First name -->
+        <input
+          #firstName
+          type="text"
+          id="defaultRegisterFormFirstName"
+          class="form-control"
+          placeholder="First name"
+        />
+      </div>
+      <div class="col">
+        <!-- Last name -->
+        <input
+          #lastName
+          type="text"
+          id="defaultRegisterFormLastName"
+          class="form-control"
+          placeholder="Last name"
+        />
+      </div>
+    </div>
+
+    <!-- E-mail -->
+    <input
+      #email
+      type="email"
+      id="defaultRegisterFormEmail"
+      class="form-control mb-4"
+      placeholder="E-mail"
+    />
+
+    <!-- Password -->
+    <input
+      #password
+      type="password"
+      id="defaultRegisterFormPassword"
+      class="form-control"
+      placeholder="Password"
+      aria-describedby="defaultRegisterFormPasswordHelpBlock"
+    />
+    <small
+      id="defaultRegisterFormPasswordHelpBlock"
+      class="form-text text-muted mb-4"
+    >
+      At least 8 characters and 1 digit
+    </small>
+    <!-- Retype Password -->
+    <input
+      #retypePassword
+      type="password"
+      id="defaultRegisterFormPassword"
+      class="form-control"
+      placeholder="Password"
+      aria-describedby="defaultRegisterFormPasswordHelpBlock"
+    />
+    <small
+      id="defaultRegisterFormPasswordHelpBlock"
+      class="form-text text-muted mb-4"
+    >
+      Retype your password
+    </small>
+    <!-- Phone number -->
+    <input
+      #phoneNumber
+      type="text"
+      id="defaultRegisterPhonePassword"
+      class="form-control"
+      placeholder="Phone number"
+      aria-describedby="defaultRegisterFormPhoneHelpBlock"
+    />
+   <input
+    #CIN
+    type="text"
+    id="id"
+    class="form-control"
+    placeholder="ID"
+    aria-describedby="defaultRegisterFormPhoneHelpBlock"
+    />
+    <small
+    id="defaultRegisterFormPhoneHelpBlock"
+    class="form-text text-muted mb-4"
+  >
+    Enter ID number
+  </small>
+    <textarea placeholder=" Tell Us about yourself..."#description type="text" id="form8" class="md-textarea form-control" rows="1" mdbInput mdbValidate></textarea>
+   
+    <input type="file"    (change)="imgUpload($event)"
+    #image  alt="Submit" style="margin-top:1rem; margin-bottom:1rem;" />
+    <br>
+    <img src="{{ imageUrl }}" style="width: 200px; height:200px; margin-top:1rem; margin-bottom:1rem;" *ngIf="checked"/>
+    <div class="form-row mb-4">
+      <div class="col">
+        <!-- Gender -->
+        <div class="gender">
+          <select #gender id="gender-list">
+            <input class="gender-list-inp" list="gender-list" type="text" />
+            <option value="Female">Gender</option>
+
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Others">Others</option>
+            
+          </select>
+        </div>
+      </div>
+      <div class="col">
+        <!-- Profession -->
+        <div class="Profession">
+          <select #profession id="Profession-list">
+            <input
+              class="profession-list-inp"
+              list="Profession-list"
+              type="text"
+            />
+            <option>Profession</option>
+            <option
+            class="dropdown-content"
+            *ngFor="let service of services"
+            value="{{ service.profession }}"
+          >
+            {{ service?.profession }}
+          </option>
+          </select>  
+        </div>
+      </div>
+    </div>
+    <!-- location -->
+    <div id="smap">
+    <app-location #loc></app-location>
+
+    </div>
+    
+
+    <!-- Sign up button -->
+    <button
+      mdbBtn
+      color="info"
+      block="true"
+      class="my-4"
+      (click)="
+        getData(
+          firstName.value,
+          lastName.value,
+          email.value,
+          password.value,
+          retypePassword.value,
+          phoneNumber.value,
+          gender.value,
+          profession.value,
+          this.imageUrl,
+          CIN.value,
+          description.value,
+          loc.address,
+          loc.latitude,
+          loc.longitude
+        )
+      "
+    >
+      Sign Up
+    </button>
+
+    <!-- Social register -->
+    <!-- <p>or sign up with:</p>
+
+    <a type="button" class="light-blue-text mx-2">
+      <mdb-icon fab icon="facebook"></mdb-icon>
+    </a>
+    <a type="button" class="light-blue-text mx-2">
+      <mdb-icon fab icon="twitter"></mdb-icon>
+    </a>
+    <a type="button" class="light-blue-text mx-2">
+      <mdb-icon fab icon="linkedin"></mdb-icon>
+    </a>
+    <a type="button" class="light-blue-text mx-2">
+      <mdb-icon fab icon="github"></mdb-icon>
+    </a>
+
+    <hr /> -->
+
+    <!-- Terms of service -->
+    <!-- <p>
+      By clicking <em>Sign up</em> you agree to our
+      <a href="" target="_blank">terms of service</a>
+    </p> -->
+
+    <!-- Default form register -->
+  </div>
+</div>

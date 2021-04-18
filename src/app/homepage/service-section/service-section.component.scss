@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700");
+
+.container {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  height: 90%;
+  align-items: center;
+  margin-bottom: 13%;
+  border-bottom-right-radius: 100%;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(0, 212, 255, 1) 0%,
+    rgba(9, 9, 121, 1) 100%
+  );
+  max-height: 100%;
+}
+
+.explore {
+  justify-content: center;
+  display: flex;
+  opacity: 0.7;
+  height: 17rem;
+  background-color: none;
+  width: 95%;
+  background: url("https://images.pexels.com/photos/5974365/pexels-photo-5974365.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-size: cover;
+  background-attachment: fixed;
+  border-radius: 0 150px 150px 0;
+  margin-bottom: 5rem;
+  opacity: 1;
+}
+
+.explore h1 {
+  font-size: 80px;
+  margin-top: 8rem;
+  font-family: "poppins", sans-serif;
+}
+
+h1 span {
+  align-self: center;
+  text-align: center;
+  color: white;
+  font-family: poppins, sans-serif;
+  text-shadow: 0 0 3px white;
+}
+
+.servicesRO {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.servicesRT {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+
+#more {
+  text-decoration: none;
+  color: rgba(9, 9, 121, 1) 100%;
+}
+
+.services {
+  width: 20rem;
+  margin: 1%;
+  display: table;
+  text-align: center;
+  border: 1px solid rgb(218, 218, 218);
+  border-radius: 2%;
+  height: 16em;
+  background-color: #fff;
+  padding: 2em;
+  object-fit: fill;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.services:hover {
+  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2);
+  background: #ffc49b;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.services img {
+  height: auto;
+  width: 40%;
+}
+
+h4 {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-size: 22px;
+  font-weight: 700;
+  font-family: "poppins", sans-serif;
+}
+.explore h1 {
+  width: 100%;
+  margin-left: 10%;
+}
+.exp-tt {
+  font-size: 100px;
+  color: #fff;
+  text-shadow: 4px 2px 4px rgb(65, 65, 65);
+  margin-top: 4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}

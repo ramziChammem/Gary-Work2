@@ -1,0 +1,68 @@
+.footer-section {
+  margin-top: 2%;
+}
+
+.formcontainer {
+  display: flex;
+
+  align-items: center;
+  width: 100%;
+}
+
+#loct {
+  width: 250px;
+  height: 150px;
+  margin-top:2rem;
+  margin-left: 3rem;
+}
+
+h5 {
+  font-size: 50px;
+}
+.fa {
+  margin-right: 0.5rem;
+}
+.send-btn {
+  width: 30%;
+  margin: auto !important;
+  background-color: rgb(60, 115, 199) !important;
+  color: #fff !important;
+}
+.send-btn:hover .fa-paper-plane {
+  color: rgb(60, 115, 199);
+}
+.text {
+  margin-top: 2rem;
+}
+.cform {
+  width: 55%;
+  margin-left: 15%;
+  align-items: center;
+}
+.fa-paper-plane {
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+}
+.loc-cntct-us {
+  text-align: left;
+  justify-content: left;
+  align-items: center;
+
+  margin-left: 10%;
+  width: 60%;
+  height: 4rem;
+  margin-bottom: 15rem;
+}
+.loc-cntct-us h1 {
+  color: #000;
+}
+.cntctus-mail {
+  color: rgb(87, 87, 87);
+}
+.cntctus-mail i {
+  color: rgb(107, 107, 107);
+  margin-right: 5px;
+}
+.email-span {
+  margin-left: 10px;
+}

@@ -1,0 +1,36 @@
+<!-- <div>
+<h1>Service Providers</h1>
+<table class="table" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table dataTable" class="row-border hover">
+    <thead>
+        <tr>
+         <th>First Name</th>
+         <th>Last Name</th>
+         <th>Phone Number</th>
+         <th>Email</th>
+         <th>Reports</th>
+         <th>Profession</th>
+         <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let sp of sps'>
+            <td>{{sp.firstName}}</td>
+            <td>{{sp.lastName}}</td>
+            <td>{{sp.phoneNumber}}</td>
+            <td>{{sp.email}}</td>
+            <td>0</td>
+            <td>{{sp.profession}}</td>
+            <td><button *ngIf='sp.isBanned === false' title="Ban User" (click)='ban(sp._id)' type="button" class="btn btn-danger"><i class="fas fa-user-lock"></i>
+
+                
+            </button>
+            <button *ngIf='sp.isBanned === true' (click)='unBan(sp._id)' title="Unban User" id="unlock" class="btn"><i id="icon" class="fas fa-unlock-alt"></i>
+
+
+
+            </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div> -->

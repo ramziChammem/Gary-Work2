@@ -1,0 +1,118 @@
+<!-- Material form register -->
+<!-- <app-navbar></app-navbar> -->
+
+<mdb-card class="mdb-card">
+
+  <mdb-card-header class="info-color white-text text-center py-4">
+    <h5>
+      <strong>Sign up</strong>
+    </h5>
+  </mdb-card-header>
+
+  <!--Card content-->
+  <mdb-card-body class="px-lg-5 pt-0" style="margin-left: -35px; width:105%;">
+
+    <!-- Form -->
+    <div class="text-center" style="color: #757575;">
+
+      <div class="form-row">
+        <div class="col">
+          <!-- First name -->
+          <div class="md-form">
+            <input #firstName type="text" id="materialRegisterFormFirstName" class="form-control" mdbInput>
+            <label for="materialRegisterFormFirstName">First name</label>
+          </div>
+        </div>
+        <div class="col">
+          <!-- Last name -->
+          <div class="md-form">
+            <input #lastName type="text" id="materialRegisterFormLastName" class="form-control" mdbInput>
+            <label for="materialRegisterFormLastName">Last name</label>
+          </div>
+        </div>
+      </div>
+      <!-- User name -->
+      <div class="md-form mt-0">
+        <input #userName type="text" id="materialRegisterFormUserName" class="form-control" mdbInput>
+        <label for="materialRegisterFormUserName">User Name</label>
+      </div>
+      <!-- E-mail -->
+      <div class="md-form mt-0">
+        <input #email type="email" id="materialRegisterFormEmail" class="form-control" mdbInput>
+        <label for="materialRegisterFormEmail">E-mail</label>
+      </div>
+
+      <!-- Password -->
+      <div class="md-form">
+        <input #password type="password" id="materialRegisterFormPassword" class="form-control"
+          aria-describedby="materialRegisterFormPasswordHelpBlock" mdbInput>
+        <label for="materialRegisterFormPassword">Password</label>
+        <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+          At least 8 characters and 1 digit
+        </small>
+      </div>
+      <!-- Repeated password -->
+      <div class="md-form">
+        <input #repeatedPassword type="password" id="materialRegisterFormRepeatedPassword" class="form-control"
+          aria-describedby="materialRegisterFormPasswordHelpBlock" mdbInput>
+        <label for="materialRegisterFormRepeatedPassword">Confirm Password</label>
+
+      </div>
+      <!-- Phone number -->
+      <div class="md-form">
+        <input #phoneNumber type="text" id="materialRegisterFormPhone" class="form-control"
+          aria-describedby="materialRegisterFormPhoneHelpBlock" mdbInput>
+        <label for="materialRegisterFormPhone">Phone number</label>
+
+      </div>
+      <div class="md-form">
+        <input type="file"    (change)="imgUpload($event)"
+        #image  alt="Submit"  style="margin-top:1rem; margin-bottom:1rem;" />
+        <br>
+        <img src="{{ imageUrl }}" style="width: 200px; height:200px; margin-top:1rem;" *ngIf="checked"/>
+        
+      </div>
+
+      <div id="umap">
+        <app-location #loc></app-location>
+        
+      </div>
+
+
+
+      <!-- Sign up button -->
+      <button mdbBtn color="info" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0"
+        mdbWavesEffect 
+        (click)="register(firstName.value,lastName.value,userName.value, email.value,password.value,repeatedPassword.value,phoneNumber.value,this.imageUrl, loc.address, loc.latitude, loc.longitude)">Register</button>
+
+      <!-- Social register -->
+      <!-- <p>or sign up with:</p>
+
+      <a type="button" class="light-blue-text mx-2">
+        <mdb-icon fab icon="facebook"></mdb-icon>
+      </a>
+      <a type="button" class="light-blue-text mx-2">
+        <mdb-icon fab icon="twitter"></mdb-icon>
+      </a>
+      <a type="button" class="light-blue-text mx-2">
+        <mdb-icon fab icon="linkedin"></mdb-icon>
+      </a>
+      <a type="button" class="light-blue-text mx-2">
+        <mdb-icon fab icon="heart"></mdb-icon>
+      </a> -->
+
+      
+
+      <!-- Terms of service -->
+      <!-- <p>By clicking
+        <em>Sign up</em> you agree to our
+        <a href="" target="_blank">terms of service</a>.
+      </p> -->
+
+    </div>
+    <!-- Form -->
+
+  </mdb-card-body>
+
+</mdb-card>
+<!-- Material form register -->

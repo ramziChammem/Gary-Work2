@@ -1,0 +1,188 @@
+.bd-container {
+  align-items: center;
+  margin-top: 2rem;
+  display: block;
+}
+.gen-container {
+  width: 100%;
+  align-items: center;
+  display: block;
+
+  display: flex;
+  flex-direction: row;
+}
+.left {
+  display: inline-block;
+  flex-direction: column;
+  margin-top: -13rem;
+
+  width: 30%;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 50%;
+  margin-left: -0.05%;
+}
+.review-title {
+  display: block;
+  margin-left: -25%;
+  color: rgb(97, 97, 97);
+  font-weight: bold;
+}
+.rate {
+  margin-top: 20px;
+  font-size: 4rem;
+  display: inline-block;
+  height: 100%;
+  width: 24%;
+  margin-right: 3rem;
+}
+.stars-cont {
+  display: inline-block;
+}
+.cont-rating {
+  display: inline-block;
+}
+.left p {
+  font-weight: bold;
+  color: rgb(63, 63, 63);
+  margin-top: 1.5rem;
+}
+.raiting-range {
+  width: 100%;
+}
+.raiting-range .no-stars {
+  display: inline-block;
+}
+.rating-bar {
+  display: inline-block;
+  margin-left: 10%;
+  width: 64%;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+}
+.bar {
+  background-color: grey;
+  height: 100%;
+  border-radius: 10px;
+}
+#bar1 {
+  width: 50%;
+}
+#bar2 {
+  width: 20%;
+}
+
+#bar3 {
+  width: 70%;
+}
+#bar4 {
+  width: 10%;
+}
+#bar5 {
+  width: 30%;
+}
+
+.no-reviews {
+  font-weight: bold;
+  color: rgb(63, 63, 63);
+  margin-left: -86%;
+}
+.user-lab {
+  font-size: 13px;
+  float: right;
+  color: rgb(145, 145, 145);
+}
+.single-review-title {
+  font-weight: bold;
+  float: left !important;
+  margin-top: 20px;
+  color: rgb(63, 63, 63);
+  margin-left: -55px;
+  display: block;
+}
+.review-body {
+  margin-top: 3rem;
+  color: rgb(117, 117, 117);
+  display: block;
+}
+.rev-bod {
+  margin-left: none;
+}
+.helpful {
+  color: rgb(77, 76, 76);
+  font-size: 13px;
+  margin-right: 1rem;
+}
+.each-review a {
+  text-decoration: underline;
+}
+.each-review {
+  text-align: left;
+}
+.yes {
+  margin-right: 0.4rem;
+}
+
+.report {
+}
+hr {
+  width: 80%;
+  color: rgb(0, 0, 0);
+}
+.rev-cont {
+  position: relative;
+  height: 400px;
+  overflow: auto;
+  display: inline-block;
+}
+.rating-readonly {
+  float: left;
+}
+.add-review {
+  width: 32%;
+  height: 4rem;
+  font-size: 1rem;
+  background-color: #fff;
+  border: 1px solid rgb(139, 139, 139);
+  float: left;
+}
+.fa-plus {
+  margin-left: 10px;
+  font-size: 17px;
+}
+.more-reviews {
+  width: 30%;
+  height: 4rem;
+  font-size: 1rem;
+  background-color: #fff;
+  border: 1px solid rgb(139, 139, 139);
+  float: left;
+  margin-right: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all 0.2s ease-in-out;
+  border-radius: 0.125rem;
+  word-wrap: break-word;
+}
+.more-reviews:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.buttons {
+  display: inline;
+}
+.mod-btn {
+  margin-top: -20px;
+}
+.btn-danger {
+  float: right;
+  width: 180px;
+  height: 40px;
+  margin-top: -17px;
+}

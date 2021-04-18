@@ -1,0 +1,83 @@
+<button
+  type="button"
+  mdbBtn
+  class="relative waves-light add-review"
+  (click)="basicModal.show()"
+  mdbWavesEffect
+  *ngIf="userId || serviceProviderEmail"
+>
+  Add Review <i class="fas fa-plus"></i>
+</button>
+
+<div
+  mdbModal
+  #basicModal="mdbModal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myBasicModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="close pull-right"
+          aria-label="Close"
+          (click)="basicModal.hide()"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Write your review</h4>
+      </div>
+      <div class="modal-body">
+        <ngb-rating
+          class="rating-readonly"
+          [(rate)]="currentRate"
+          #r
+          (click)="changeRate(r.value)"
+        ></ngb-rating>
+        <p id="rate">Rate: {{ halim }}</p>
+        <input
+          [(ngModel)]="myReview.reviewTitle"
+          class="modal-rev-title"
+          type="text"
+          placeholder="Review Title..."
+        />
+        <textarea
+          [(ngModel)]="myReview.reviewBody"
+          class="modal-txt-area"
+          name="rev"
+          id=""
+          cols="56"
+          rows="5"
+          placeholder="Review Body..."
+        ></textarea>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          mdbBtn
+          color="secondary"
+          class="waves-light"
+          aria-label="Close"
+          (click)="basicModal.hide()"
+          mdbWavesEffect
+        >
+          Close
+        </button>
+        <button
+          type="button"
+          mdbBtn
+          color="primary"
+          (click)="addReview()"
+          class="relative waves-light"
+          mdbWavesEffect
+        >
+          Send review
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+.text-center {
+  width: 60%;
+  margin: auto;
+}
+.btn-info {
+  width: 40%;
+}
+#Profession-list {
+  width: 100%;
+  height: 37px;
+  border-color: rgb(204, 204, 204);
+  color: rgb(104, 104, 104);
+}
+
+agm-map {
+  width: 500px;
+  height: 500px;
+}
+#smap {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+#gender-list {
+  width: 100%;
+  height: 37px;
+  border-color: rgb(204, 204, 204);
+  color: rgb(104, 104, 104);
+}
+/* .gender-list-inp {
+  border-color: rgb(245, 245, 245);
+}
+.profession-list-inp {
+  border-color: rgb(255, 254, 254);
+} */
+#Location-list {
+  width: 100%;
+  height: 37px;
+  border-color: rgb(204, 204, 204);
+  color: rgb(104, 104, 104);
+}
+.container {
+  align-items: center;
+  text-align: center;
+  height: 150%;
+}
+.cont-sign-up {
+  margin: auto;
+  width: 50%;
+  margin-top: 3rem;
+}
+.sign-tt {
+  font-weight: bold;
+  color: rgb(110, 110, 110);
+  font-size: 3.2rem;
+}
+textarea{
+  margin-top: 1rem;
+}
+#id{
+  margin-top: 1rem;
+}

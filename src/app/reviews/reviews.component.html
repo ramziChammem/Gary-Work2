@@ -1,0 +1,99 @@
+<div class="bd-container">
+  <h2 class="review-title">Rating and Reviews</h2>
+  <div class="gen-container">
+    <div class="left">
+      <div class="cont-rating">
+        <h1 class="rate">3.5</h1>
+        <div class="stars-cont">
+          <ngb-rating class="rating-readonly" [rate]="1.5"></ngb-rating>
+        </div>
+      </div>
+      <p>100% of reviews recommend this Service Provider</p>
+      <div class="rating-range">
+        <label for="5 stars" class="no-stars">5 stars</label>
+        <div class="rating-bar">
+          <div id="bar5" class="bar">
+            <div></div>
+          </div>
+        </div>
+      </div>
+      <div class="rating-range">
+        <label for="5 stars" class="no-stars">4 stars</label>
+        <div class="rating-bar">
+          <div id="bar4" class="bar"></div>
+        </div>
+      </div>
+      <div class="rating-range">
+        <label for="5 stars" class="no-stars">3 stars</label>
+        <div class="rating-bar">
+          <div id="bar3" class="bar"></div>
+        </div>
+      </div>
+      <div class="rating-range">
+        <label for="5 stars" class="no-stars">2 stars</label>
+        <div class="rating-bar">
+          <div id="bar2" class="bar"></div>
+        </div>
+      </div>
+      <div class="rating-range">
+        <label for="5 stars" class="no-stars">1 stars</label>
+        <div class="rating-bar">
+          <div id="bar1" class="bar"></div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h3 class="no-reviews">{{ spReviews.length }} reviews</h3>
+      <br />
+      <div
+        class="rev-cont"
+        data-mdb-spy="scroll"
+        data-mdb-target="#scrollspy1"
+        data-mdb-offset="0"
+      >
+        <div class="each-review" *ngFor="let review of spReviews">
+          <div class="rate-and-username">
+            <ngb-rating
+              class="rating-readonly"
+              [rate]="review.rate"
+            ></ngb-rating>
+            <label class="user-lab" for="user"
+              >{{ review.userName }}, <span>{{ review.updatedAt }}</span>
+            </label>
+          </div>
+          <h3 class="single-review-title">
+            {{ review.reviewTitle }}
+          </h3>
+          <br />
+          <div class="rev-bod">
+            <p class="review-body">
+              {{ review.reviewBody }}
+            </p>
+            <br />
+          </div>
+          <a class="report" href="">Report</a>
+          <button
+            (click)="deleteReview(review._id)"
+            class="btn btn-danger"
+            *ngIf="review.userId === userId"
+          >
+            Delete Review
+          </button>
+          <br />
+          <hr />
+        </div>
+      </div>
+      <br />
+      <div class="buttons">
+        <button class="more-reviews">More Reviews</button>
+
+        <app-modal-review
+          [spReviews]="serviceProviderReviews"
+          (newReview)="newReview($event)"
+          class="mod-btn"
+          *ngIf="isUser === 'yes'"
+        ></app-modal-review>
+      </div>
+    </div>
+  </div>
+</div>

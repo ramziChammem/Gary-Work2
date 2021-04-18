@@ -1,0 +1,79 @@
+<!-- <app-navbar></app-navbar> -->
+
+<div class="cont">
+    <div class="div-container">
+      <div class="forms-container">
+        <div class="signin-signup">
+          <form action="" class="sign-in-form">
+            <h2 class="title">Sign In</h2>
+            <div class="input-field">
+              <i class="fas fa-users"></i>
+              <input #email type="text" placeholder="Username" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input #password type="Password" placeholder="Password" />
+            </div>
+            <!-- check -->
+            <div class="checkBox">
+              <input
+              type="checkbox"
+              id="serviceProvider"
+              name="serviceProvider"
+              value="serviceProvider"
+              (click)="checkProvider()"
+            />
+            <span class="checkmark"></span>
+              <label for="serviceProvider" class="isServiceProvider-checkbox"> Are you a service provider?</label>
+            
+            </div>
+            <!-- check -->
+            <button
+              class="btn solid"
+              (click)="login(email.value, password.value)"
+            >
+              Login
+            </button>
+            <!-- <p class="social-text">Or sign in with social platform:</p>
+            <div class="social-media">
+              <a href="#" class="social-icon">
+                <i class="fab fa-facebook-f"></i> </a
+              ><a href="#" class="social-icon"> <i class="fab fa-twitter"></i> </a
+              ><a href="#" class="social-icon"> <i class="fab fa-google"></i> </a
+              ><a href="#" class="social-icon">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div> -->
+            <h2 class="quest-title">new to GaryWork ?</h2>
+            <br />
+  
+            <div routerLink="/userSignup" class="user-sign-up-container">
+              <div class="user-icon-container">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="user-sign-up">
+                <h3 class="user-ask">You are a user looking for a service ?</h3>
+                <p>
+                  quickly find a service provider near you and make an appointment
+                  online for free!
+                </p>
+              </div>
+            </div>
+            <div routerLink="/providerSignup" class="sp-sign-up-container">
+              <div class="sp-icon-container">
+                <i class="fas fa-tools"></i>
+              </div>
+              <div class="sp-sign-up">
+                <h3 class="user-ask">You are a service Provider ?</h3>
+                <p>
+                  Share your services with your future client and schedule an
+                  appointement with them
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

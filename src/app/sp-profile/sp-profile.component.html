@@ -1,0 +1,454 @@
+<!-- <app-sv-nav></app-sv-nav> -->
+<div class="body">
+  <div class="cont">
+    <div class="container" *ngIf="spData">
+      <div class="profile-header">
+        <div class="profile-image">
+          <div class="imgg-cont">
+            <img src="{{ spData?.imageUrl }}" alt="" width="200" />
+            <div *ngIf="!visitor" class="cam-icon">
+              <i (click)="basicModal.show()" class="fas fa-camera"></i>
+              <!-- modal -->
+              <div class="modalImage"></div>
+              <div
+                mdbModal
+                #basicModal="mdbModal"
+                class="modal fade"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="myBasicModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button
+                        type="button"
+                        class="close pull-right"
+                        aria-label="Close"
+                        (click)="basicModal.hide()"
+                      ></button>
+                      <input
+                        class="input-image"
+                        type="file"
+                        (change)="imgUpload($event)"
+                        #image
+                        alt="Submit"
+                      />
+                      <img
+                        src="{{ imageUrl }}"
+                        style="width: 200px; height: 200px"
+                      />
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn" (click)="basicModal.hide()">
+                        <i class="fa fa-close"></i> Close
+                      </button>
+                      <button class="btnS" (click)="updateImage(this.imageUrl)">
+                        <i class="fa fa-close"></i> Save Changes
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- modal -->
+            </div>
+          </div>
+        </div>
+        <div class="profile-nav-info">
+          <h3 class="user-name">{{ spData?.fullName }}</h3>
+          <div class="adress">
+            <p class="state">{{ spData?.location }}</p>
+            <br />
+          </div>
+          <p class="state">{{ spData?.adress }}</p>
+        </div>
+        <div *ngIf="!visitor && notifications > 0" class="profile-option">
+          <div class="notification" (click)="goToAppointments()">
+            <i class="fa fa-bell"></i>
+            <span class="alert-message">{{ notifications }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="main-bd">
+        <div class="left-side">
+          <div class="profile-side">
+            <p class="phone-number">
+              <i class="fa fa-phone"></i>
+              {{ spData?.phoneNumber }}
+            </p>
+            <p class="email">
+              <i class="fa fa-envelope"></i>
+              {{ spData?.email }}
+            </p>
+            <p class="user-profession">
+              <i class="fas fa-tools"></i>
+              {{ spData?.profession }}
+            </p>
+            <div class="user-bio" *ngIf="!visitor">
+              <h3>Bio:</h3>
+              <p class="bio">
+                {{ spData?.description }}
+              </p>
+            </div>
+            <div class="user-rating">
+              <h3 class="rating">4.5</h3>
+              <div class="rate">
+                <div class="stars">
+                  <i class="fa fa-star"></i><i class="fa fa-star"></i
+                  ><i class="fa fa-star"></i><i class="fa fa-star"></i
+                  ><i class="fa fa-star"></i>
+                </div>
+                <span class="no-user"
+                  ><span> 123</span>&nbsp;&nbsp; Reviews
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right-side">
+          <div class="nav">
+            <ul>
+              <li
+                class="user-post active"
+                [class.active]="posts"
+                (click)="post()"
+              >
+                Posts
+              </li>
+              <li
+                class="user-review"
+                [class.active]="reviews"
+                (click)="review()"
+              >
+                Reviews
+              </li>
+              <li
+                *ngIf="visitor1"
+                class="user-setting"
+                [class.active]="appointments"
+                (click)="appointment()"
+              >
+                My appointments
+              </li>
+              <li
+                *ngIf="!visitor"
+                class="user-review"
+                [class.active]="settings"
+                (click)="setting()"
+              >
+                Update My Profile
+              </li>
+              <li
+                *ngIf="!visitor"
+                class="user-post active"
+                [class.active]="Security"
+                (click)="security()"
+              >
+                Security
+              </li>
+            </ul>
+          </div>
+          <div class="profile-body">
+            <div
+              class="profile-posts tab active"
+              id="profile-posts"
+              *ngIf="posts"
+            >
+              <div *ngIf="!visitor">
+                <h1>Your posts</h1>
+
+                <div class="card-container">
+                  <mdb-card class="card" *ngFor="let e of spPosts">
+                    <div>
+                      <span
+                        *ngIf="!visitor"
+                        (click)="deletePost(e._id)"
+                        class="far fa-times-circle circle"
+                      ></span>
+                      <mdb-card-img
+                        src="{{ e.image }}"
+                        alt="Card image cap"
+                      ></mdb-card-img>
+                    </div>
+                    <mdb-card-body>
+                      <!--Title-->
+                      <mdb-card-title>
+                        <h4>{{ e.title }}</h4>
+                      </mdb-card-title>
+                      <!--Text-->
+                      <mdb-card-text> {{ e.description }} </mdb-card-text>
+                      <h4>{{ e.updatedAt }}</h4>
+                    </mdb-card-body>
+                  </mdb-card>
+
+                  <!-- card posts -->
+                  <!-- service provider posts -->
+                </div>
+              </div>
+              <button
+                class="button button1"
+                type="submit"
+                (click)="displayForm()"
+                *ngIf="!editable"
+              >
+                add
+              </button>
+              <br />
+
+              <div class="post-formm" *ngIf="editable" class="container">
+                <form action="/action_page.php">
+                  <input
+                    type="file"
+                    (change)="imgUpload($event)"
+                    #image
+                    alt="Submit"
+                    width="48"
+                    height="48"
+                  />
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="fname">Title:</label>
+                    </div>
+                    <div class="col-75">
+                      <input
+                        #title
+                        type="text"
+                        id="fname"
+                        name="firstname"
+                        placeholder="title.."
+                      />
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="subject">Description:</label>
+                    </div>
+                    <div class="col-75">
+                      <textarea
+                        #decription
+                        id="subject"
+                        name="subject"
+                        placeholder="Write something.."
+                        style="height: 200px"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <button
+                    class="save-btn"
+                    (click)="
+                      Add(
+                        title.value,
+                        decription.value,
+                        this.imageUrl,
+                        spData?._id
+                      )
+                    "
+                  >
+                    Save
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div
+              class="profile-posts tab active"
+              id="profile-settings"
+              *ngIf="settings"
+            >
+              <h1>Your settings</h1>
+              <!-- settings for the profile -->
+              <form class="text-center border border-light p-5">
+                <div>
+                  <label class="inline-label">First Name</label>
+                  <input
+                    #firstName
+                    class="form-control mb-4 p-4"
+                    value="{{ spData.firstName }}"
+                  />
+                </div>
+                <div>
+                  <label class="inline-label">Last Name</label>
+                  <input
+                    #lastName
+                    class="form-control mb-4 p-4"
+                    value="{{ spData.lastName }}"
+                  />
+                </div>
+                <div>
+                  <label class="inline-label"> FullName</label>
+                  <input
+                    #fullName
+                    class="form-control mb-4 p-4"
+                    value="{{ spData.fullName }}"
+                  />
+                </div>
+                <div>
+                  <label class="inline-label">Phone Number</label>
+                  <input
+                    #phoneNumber
+                    class="form-control mb-4 p-4"
+                    value="{{ spData.phoneNumber }}"
+                  />
+                </div>
+                <div id="map">
+                  <app-location #location></app-location>
+                </div>
+                <button
+                  class="btn-update"
+                  (click)="
+                    updateServiceProviderDetails(
+                      firstName.value,
+                      lastName.value,
+                      fullName.value,
+                      phoneNumber.value,
+                      location.address
+                    )
+                  "
+                >
+                  Save
+                </button>
+              </form>
+              <!-- settings for the profile -->
+            </div>
+            <div
+              class="profile-posts tab active"
+              id="profile-settings"
+              *ngIf="Security"
+            >
+              <h1>Your settings</h1>
+              <!-- settings for the profile -->
+              <form class="text-center border border-light p-5">
+                <div>
+                  <label class="inline-labell">Current password</label>
+                  <input
+                    #currentPassword
+                    type="password"
+                    class="form-control mb-4 p-4"
+                    placeholder="current password"
+                  />
+                </div>
+                <div>
+                  <label class="inline-labell">New password</label>
+                  <input
+                    #newPassword
+                    type="password"
+                    class="form-control mb-4 p-4"
+                    placeholder="new password"
+                  />
+                </div>
+                <div>
+                  <label class="inline-labell">Confirm Password</label>
+                  <input
+                    #confirmPassword
+                    type="password"
+                    class="form-control mb-4 p-4"
+                    placeholder="Confirm new Password"
+                  />
+                </div>
+                <button
+                  class="btn-update"
+                  (click)="
+                    updateServiceProviderPassword(
+                      currentPassword.value,
+                      newPassword.value,
+                      confirmPassword.value
+                    )
+                  "
+                >
+                  Save
+                </button>
+              </form>
+              <!-- settings for the profile -->
+            </div>
+
+            <div
+              class="profile-reviews tab"
+              id="profile-reviews"
+              *ngIf="reviews"
+            >
+              <app-reviews [spReviews]="serviceProviderReviews"></app-reviews>
+            </div>
+            <div
+              class="profile-settings tab"
+              id="profile-settings"
+              *ngIf="appointments"
+            >
+              <div *ngIf="visitor1">
+                <div
+                  class="appointmentCard"
+                  *ngFor="let appointment of appointmentsList"
+                >
+                  <div
+                    class="appo-cont"
+                    *ngIf="!appointment.isDeclined && !appointment.isApproved"
+                  >
+                    <p id="app">
+                      <i class="far fa-calendar-alt"></i> you have an
+                      appointment on:
+                      <span class="ap"> {{ appointment.date }}</span>
+                    </p>
+                    <p>
+                      <i class="far fa-clock"></i> at :
+                      <span class="ap">{{ appointment.time }}</span>
+                    </p>
+                    <h1 id="with">
+                      By: <span id="user">{{ appointment.userName }}</span>
+                    </h1>
+                    <h4>
+                      User's Email: <span>{{ appointment.userEmail }}</span>
+                    </h4>
+                    <h4>
+                      User's Phone Number:
+                      <span>{{ appointment.userPhoneNumber }}</span>
+                    </h4>
+                    <div class="aprv-dcln">
+                      <button
+                        class="approve-appointment apdc"
+                        (click)="approveAppointment(appointment._id)"
+                      >
+                        Approve
+                      </button>
+                      <button
+                        class="decline-appointment apdc"
+                        (click)="declineAppointment(appointment._id)"
+                      >
+                        Decline
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="appr"
+                    *ngIf="appointment.isApproved && !appointment.isDeclined"
+                  >
+                    <div class="approved-app">
+                      Your have approved and appointement with
+                      {{ appointment.userName }} on {{ appointment.date }} at
+                      {{ appointment.time }} !
+                    </div>
+                  </div>
+                  <div
+                    class="decc"
+                    *ngIf="!appointment.isApproved && appointment.isDeclined"
+                  >
+                    <div class="declined-app">
+                      Your have declined and appointement with
+                      {{ appointment.userName }} on {{ appointment.date }} at
+                      {{ appointment.time }}.
+                    </div>
+                    <i
+                      class="fas fa-times-circle deleteNotfDec"
+                      (click)="deleteNotification(appointment._id)"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<!-- <div class="request">
+<mdb-card  class="m-5 card" *ngFor='let request of requests'>
+    <mdb-card-body>
+      <div id="info">
+        </div>
+      <mdb-card-title>
+          <img src={{request.imageUrl}} alt="">
+        <h1>{{request.fullName}}</h1>
+        <h1 class="text-muted mb-2">{{request.profession}}</h1>
+      </mdb-card-title>
+      <mdb-card-text>
+        <h2>{{request.CIN}}</h2>
+        <h2>{{request.phoneNumber}}</h2>
+        <p>{{request.description}}</p>
+      </mdb-card-text>
+      <button mdbBtn type="button" color="success" (click) ='verifyAcc(request._id)' mdbWavesEffect>Verify Account</button>
+      <button mdbBtn type="button" color="warning" (click)='reject(request._id)' mdbWavesEffect>Decline</button>
+      <<div class="position-absolute top-0 start-100 translate-middle pff"></div> -->
+
+
+    <!-- </mdb-card-body> -->
+  <!-- </mdb-card>
+</div> --> 
+<!--  -->
+<!-- <div  class="request-card"> -->
+  <!-- <mdb-card class="card"  *ngFor='let request of requests'> -->
+    <!--Card image-->
+    <!-- <mdb-card-img src={{request.imageUrl}} alt="Card image cap"> -->
+      <!-- <div class="cardDesign"> -->
+      <!-- <img src={{request.imageUrl}} class="card-img"/> -->
+    <!-- </mdb-card-img> -->
+    <!--Card content-->
+    <!-- <mdb-card-body> -->
+  
+      <!-- <div id="name"> -->
+        <!-- <mdb-card-title> <i class="far fa-user"></i> {{request.fullName}} </mdb-card-title> -->
+      <!-- </div> -->
+      
+      <!-- <div class="info"> -->
+      <!-- <mdb-card-text ><i class="fas fa-tools"></i>{{request.profession}}</mdb-card-text>
+      <mdb-card-text ><i class="fas fa-id-card"></i>{{request.CIN}}</mdb-card-text>
+      <mdb-card-text ><i class="fas fa-phone"></i>{{request.phoneNumber}}</mdb-card-text>
+      <mdb-card-text ><i class="fas fa-pencil-alt"></i>{{request.description}}</mdb-card-text> -->
+       <!-- </div> -->
+
+      <!-- <div class="buttons"> -->
+      <!-- <button mdbBtn type="button" style="margin-right: 15%;" class="verify-btn"(click) ='verifyAcc(request._id)' mdbWavesEffect>Verify</button>
+      <button mdbBtn type="button" style="margin-left: 2%;" class="decline-btn" (click)='reject(request._id)' mdbWavesEffect>Decline</button> -->
+    <!-- </div> -->
+    <!-- </mdb-card-body> -->
+  <!-- </div> -->
+  <!-- </mdb-card> -->
+<!-- </div> -->
+
+<div class="card" *ngFor='let request of requests'>
+    <img class="card-img" src={{request.imageUrl}}>
+        <div class="info">
+          <h5 ><i class="fas fa-tools"></i>{{request.profession}}</h5>
+        <h5 ><i class="fas fa-id-card"></i>{{request.CIN}}</h5>
+        <h5><i class="fas fa-phone"></i>{{request.phoneNumber}}</h5>
+        <h5><i class="fas fa-pencil-alt"></i>{{request.description}}</h5>
+      </div>
+      <div class="btn-cont">
+  
+        <button mdbBtn  class="verify-btn"(click) ='verifyAcc(request._id)' mdbWavesEffect>Verify</button>
+        <button mdbBtn  class="decline-btn" (click)='reject(request._id)' mdbWavesEffect>Decline</button>
+        <!-- <button
+        (click)='reject(request._id)'
+        mdbBtn
+        type="button"
+        color="danger"
+        outline="true"
+        mdbWavesEffect
+        class="decline-btn"
+      >
+       decline
+      </button> -->
+      </div>
+  </div>
+  

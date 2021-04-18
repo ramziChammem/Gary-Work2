@@ -1,0 +1,20 @@
+.text-center {
+  width: 50%;
+}
+.mdb-card {
+  margin-left: 33%;
+  margin-top: 4%;
+}
+.info-color h5 strong {
+  font-size: 25px;
+}
+
+#umap {
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.card{
+  box-shadow: none;
+}

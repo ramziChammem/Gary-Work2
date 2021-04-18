@@ -1,0 +1,240 @@
+<!-- <app-sv-nav></app-sv-nav> -->
+<div class="body">
+  <div class="cont">
+    <div class="container" *ngIf="spData">
+      <div class="profile-header">
+        <div class="profile-image">
+          <div class="imgg-cont">
+            <img src="{{ spData?.imageUrl }}" alt="" width="200" />
+            <div *ngIf="!visitor" class="cam-icon">
+              <i (click)="basicModal.show()" class="fas fa-camera"></i>
+              <!-- modal -->
+              <div class="modalImage"></div>
+              <div
+                mdbModal
+                #basicModal="mdbModal"
+                class="modal fade"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="myBasicModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button
+                        type="button"
+                        class="close pull-right"
+                        aria-label="Close"
+                        (click)="basicModal.hide()"
+                      >
+                        <span aria-hidden="true">×</span>
+                      </button>
+                      <input
+                        type="file"
+                        (change)="imgUpload($event)"
+                        #image
+                        alt="Submit"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- modal -->
+            </div>
+          </div>
+        </div>
+        <div class="profile-nav-info">
+          <h3 class="user-name">{{ spData?.fullName }}</h3>
+          <div class="adress">
+            <p class="state">{{ spData?.location }}</p>
+            <br />
+          </div>
+          <p class="state">{{ spData?.adress }}</p>
+        </div>
+      </div>
+      <div class="main-bd">
+        <div class="left-side">
+          <div class="profile-side">
+            <p *ngIf="userIsLoggedIn || spIsLoggedIn" class="phone-number">
+              <i class="fa fa-phone"></i>
+              {{ spData?.phoneNumber }}
+            </p>
+            <p *ngIf="userIsLoggedIn || spIsLoggedIn" class="email">
+              <i class="fa fa-envelope"></i>
+              {{ spData?.email }}
+            </p>
+            <p *ngIf="!userIsLoggedIn && !spIsLoggedIn" class="phone-number">
+              <i class="fa fa-phone"></i>
+              <a [routerLink]="['/signin']">Login to view</a>
+            </p>
+            <p *ngIf="!userIsLoggedIn && !spIsLoggedIn" class="email">
+              <i class="fa fa-envelope"></i>
+              <a [routerLink]="['/signin']">Login to view</a>
+            </p>
+
+            <p class="user-profession">
+              <i class="fas fa-tools"></i>
+              {{ spData?.profession }}
+            </p>
+            <div class="user-bio">
+              <h3>Bio:</h3>
+              <p class="bio">
+                {{ spData?.description }}
+              </p>
+            </div>
+            <button
+              *ngIf="visitor && userIsLoggedIn && !spIsLoggedIn"
+              type="button"
+              mdbBtn
+              color="primary"
+              class="relative waves-light"
+              (click)="basicModal.show()"
+              mdbWavesEffect
+            >
+              make appointment
+            </button>
+            <button
+              *ngIf="!userIsLoggedIn && !spIsLoggedIn"
+              type="button"
+              mdbBtn
+              color="primary"
+              class="relative waves-light"
+              (click)="alertSignup()"
+              mdbWavesEffect
+            >
+              make appointment
+            </button>
+            <div
+              mdbModal
+              #basicModal="mdbModal"
+              id="modal"
+              class="modal fade"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="myBasicModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button
+                      type="button"
+                      class="close pull-right"
+                      aria-label="Close"
+                      (click)="basicModal.hide()"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="appointment">
+                      <div class="date-input">
+                        <label>Choose Date</label>
+                        <input type="date" class="date" #date />
+                      </div>
+                      <div class="time-input">
+                        <label>Choose Time</label>
+                        <input
+                          type="time"
+                          class="time"
+                          #time
+                          id="appt"
+                          name="appt"
+                          min="09:00"
+                          max="18:00"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- <button
+                        (click)="submit(date.value, time.value)"
+                        type="button"
+                        mdbBtn
+                        color="primary"
+                        class="relative waves-light"
+                        mdbWavesEffect
+                      >
+                        Send
+                      </button> -->
+                    <button
+                      class="btnS"
+                      (click)="submit(date.value, time.value)"
+                    >
+                      <i class="fa fa-close"></i> SEND
+                    </button>
+                    <button class="btn" (click)="basicModal.hide()">
+                      <i class="fa fa-close"></i> Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right-side">
+          <div class="nav">
+            <ul>
+              <li
+                class="user-post active"
+                [class.active]="posts"
+                (click)="post()"
+              >
+                Posts
+              </li>
+              <li
+                class="user-review"
+                [class.active]="reviews"
+                (click)="review()"
+              >
+                Reviews
+              </li>
+            </ul>
+          </div>
+          <div class="profile-body">
+            <div
+              class="profile-posts tab active"
+              id="profile-posts"
+              *ngIf="posts"
+            >
+              <div *ngIf="!visitor">
+                <h1>Your posts</h1>
+              </div>
+              <div class="card-container">
+                <mdb-card class="card" *ngFor="let e of spPosts">
+                  <div>
+                    <mdb-card-img
+                      src="{{ e.image }}"
+                      alt="Card image cap"
+                    ></mdb-card-img>
+                  </div>
+                  <mdb-card-body>
+                    <!--Title-->
+                    <mdb-card-title>
+                      <h4>{{ e.title }}</h4>
+                    </mdb-card-title>
+                    <!--Text-->
+                    <mdb-card-text> {{ e.description }} </mdb-card-text>
+                    <h4>{{ e.updatedAt }}</h4>
+                  </mdb-card-body>
+                </mdb-card>
+
+                <!-- card posts -->
+                <!-- service provider posts -->
+              </div>
+            </div>
+
+            <div
+              class="profile-reviews tab"
+              id="profile-reviews"
+              *ngIf="reviews"
+            >
+              <app-reviews [spReviews]="serviceProviderReviews"></app-reviews>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

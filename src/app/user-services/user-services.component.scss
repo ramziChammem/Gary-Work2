@@ -1,0 +1,272 @@
+// .card-cont {
+//   width: 100% !important;
+//   align-items: center;
+//   margin-top: 7rem;
+// }
+// #body{
+//   background-color: pink;
+// }
+// .card-img-top {
+//   margin-left: 33%;
+//   width: 7.5rem;
+//   height: 7.5rem;
+//   border-radius: 50%;
+//   margin-top: 1.5%;
+//   border: 3px solid #fff;
+// }
+// #whole-card {
+//   margin-top: 3rem;
+//   height: 25rem;
+//   width: 22%;
+//   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+//   transition: 0.3s ease-in-out;
+//   border-radius: 6px;
+//   display: flex;
+//   float: left;
+//   margin-left: 10%;
+//   background-color:rgb(226, 228, 229);
+//   background-image: "";
+// }
+// #whole-card:hover {
+//   transform: translateY(-15px);
+// }
+// .mb-3 {
+//   width: 25%;
+//   margin: auto;
+//   align-items: center;
+//   margin-left: 1rem;
+// }
+// .card-body {
+//   width: 100%;
+// }
+// .img__cont {
+//   width: 100%;
+//   height: 8rem;
+//   align-items: center;
+//   border-radius: 6px 6px 0px 0px;
+// }
+// .sp__name {
+//   display: inline-block;
+// }
+// #rate {
+//   float: right;
+// }
+.md-form {
+  width: 15%;
+  height: 50%;
+  margin-right: 1rem;
+  margin-top: 1rem;
+}
+.filter {
+  margin: 3%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+filter div {
+  margin: 2% !important;
+}
+
+// .container {
+//   margin: auto;
+// }
+#avatar{
+  height: 250px;
+  width: 100%;
+}
+.dropbtn {
+
+//   background-color: #045de9;
+// background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
+
+background-color: #2a2a72;
+background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 15%;
+  height: 20%;
+  margin-left: 1rem;
+  padding: 0.5%;
+  margin-top: 1%;
+}
+
+.dropdown-content {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  background-color: white;
+}
+
+#loc {
+  margin-left: 2rem;
+}
+#label {
+  margin-left: 2.2rem;
+}
+.fas {
+  color: rgb(66, 66, 66);
+  margin-right: 0.5rem;
+}
+.card-text {
+  font-size: 15px;
+}
+
+#map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+agm-map {
+  width: 600px;
+  height: 350px;
+}
+
+h5 {
+  text-align: center;
+}
+
+#mapBtn {
+  // background-color: #192bc2;
+  background-color: #2a2a72;
+background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 15%;
+  height: 20%;
+  margin-left: 1rem;
+  padding: 0.4%;
+  margin-top: 1%;
+  padding:  7px;
+}
+// #body {
+//   background-color: aqua;
+// }
+
+
+
+
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,600);
+.snip1336 {
+  font-family: 'Roboto', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  min-width: 230px;
+  max-width: 315px;
+  width: 100%;
+  color:black;
+  text-align: left;
+  line-height: 1.4em;
+  background-color: white;
+
+  float: left;
+}
+.snip1336:hover{
+  transform: translateY(-15px);
+}
+.snip1336 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.snip1336 img {
+  max-width: 100%;
+  vertical-align: top;
+  opacity: 0.85;
+}
+.snip1336 figcaption {
+  width: 100%;
+  background-color: white;
+  padding: 25px;
+  position: relative;
+}
+.snip1336 figcaption:before {
+  position: absolute;
+  content: '';
+  bottom: 100%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 55px 0 0 400px;
+  border-color: transparent transparent transparent white;
+}
+.snip1336 figcaption a {
+  padding: 5px;
+  border: 1px solid white;
+  color: #ffffff;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  margin: 10px 0;
+  display: inline-block;
+  opacity: 0.65;
+  width: 47%;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.snip1336 figcaption a:hover {
+  opacity: 1;
+}
+.snip1336 .profile {
+  border-radius: 50%;
+  position: absolute;
+  bottom: 100%;
+  left: 25px;
+  z-index: 1;
+  width: 40%;
+  height:50%;
+  border: solid  white 2px;
+  opacity: 1;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+.snip1336 .follow {
+  margin-right: 4%;
+  border-color: #2980b9;
+  color: #2980b9;
+}
+.snip1336 h2 {
+  margin: 0 0 5px;
+  font-weight: 300;
+}
+.snip1336 h2 span {
+  display: block;
+  font-size: 0.5em;
+  color: black;
+  display: inline;
+  margin-right: 1rem;
+}
+
+#card{
+ 
+ 
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
